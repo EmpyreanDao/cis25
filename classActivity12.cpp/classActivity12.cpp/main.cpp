@@ -6,9 +6,25 @@
 //
 
 #include <iostream>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main(){
+    double num,
+    factorial = 1;;
+    
+    cout << "Give me a positive nuumber bigger than 2 please: ";
+    cin >> num;
+    
+    while( num < 2){
+        cout << "Please input a positive number bigger than 2";
+        cin >> num;
+    }
+    
+    for (int i = num; i >= 1; i--){
+        factorial *= i;
+        
+    }
+    
+    cout << "The Factorial of " << num << " is: " << factorial << endl ;
+    
 }
