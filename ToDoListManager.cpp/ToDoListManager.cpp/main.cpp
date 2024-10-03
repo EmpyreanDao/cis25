@@ -18,15 +18,38 @@ using namespace std;
 int main (){
     bool running = true;
     int choice;
+    
     cout << "To do list manager"<< endl;
-    showMenu();
+    
     while(running){
+        showMenu();
         
         cin >> choice;
         
+        // lets the user just choose one number.
         switch(choice)
         {
-            case 1; addTask(<#int#>, <#int#>, <#string#>)
+            case 1:
+                addTask(1, 2, "Task Name");
+                break;
+            case 2:
+                removeTasks(1, 2, "Task Name");
+                break;
+            case 3:
+                markTasks(1, 2, "Task Name");
+                break;
+            case 4:
+                cout << "Diplaying tasks..." << endl;
+                // gotta creat a functino here to show tasks most lilkey with vectors
+                break;
+            case 5:
+                cout << "Exiting..."<< endl;
+                running = false; // stops the loop
+                break; 
+                
+                
+                
+            
         }
     }
 
