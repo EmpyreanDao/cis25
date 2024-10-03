@@ -8,13 +8,27 @@
 #include <iostream>
 using namespace std;
 
-void addTask(int ,int , string);
 void showMenu();
+void addTask(int ,int , string);
+void removeTasks(int ,int , string);
+void markTasks(int ,int , string);
+
 
 using namespace std;
 int main (){
-    bool running = true
-    
+    bool running = true;
+    int choice;
+    cout << "To do list manager"<< endl;
+    showMenu();
+    while(running){
+        
+        cin >> choice;
+        
+        switch(choice)
+        {
+            case 1; addTask(<#int#>, <#int#>, <#string#>)
+        }
+    }
 
 }
 void showMenu(){
