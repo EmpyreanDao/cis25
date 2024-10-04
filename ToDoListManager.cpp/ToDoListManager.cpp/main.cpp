@@ -6,7 +6,19 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
+
+const int MAX_TASKS = 100; // for how many tasks i want to deal with
+int taskCount = 0; // keep track of how many tasks i have
+
+
+
+// four  aarrays to store the data
+int taskIDs[MAX_TASKS];
+string taskNames[MAX_TASKS];
+int taskPriorities[MAX_TASKS];
+int taskDueDate[MAX_TASKS];
 
 void showMenu();
 void addTask(int ,int , string);
@@ -30,7 +42,7 @@ int main (){
         switch(choice)
         {
             case 1:
-                addTask(1, 2, "Task Name");
+                addTask();
                 break;
             case 2:
                 removeTasks(1, 2, "Task Name");
@@ -45,7 +57,7 @@ int main (){
             case 5:
                 cout << "Exiting..."<< endl;
                 running = false; // stops the loop
-                break; 
+                break;
                 
                 
                 
@@ -60,4 +72,12 @@ void showMenu(){
     cout << "3. Mark a task as completed" << endl;
     cout << "4. View all tasks" << endl;
     cout << "5. Exit" << endl;
+}
+void addTask(){
+    if (taskCount >= MAX_TASKS){
+        cout << "Tasks list full" << endl;
+        return;
+    }
+    
+    
 }
