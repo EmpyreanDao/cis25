@@ -2,7 +2,7 @@
 //  main.cpp
 //  ToDoListManager.cpp
 //
-//  Created by Samuel Tsogbe on 10/2/24.
+//  Created by Samuel Tsogbe on 10/0/24.
 //
 
 #include <iostream>
@@ -15,12 +15,13 @@ int taskCount = 0; // keep track of how many tasks i have
 
 
 // four  aarrays to store the data
-int taskIDs[MAX_TASKS];
+int taskIds[MAX_TASKS];
 string taskNames[MAX_TASKS];
 int taskPriority[MAX_TASKS];
 int taskDueDate[MAX_TASKS];
 
 void showMenu();
+void showTasks();
 void addTask(int ,int , string);
 void removeTasks(int ,int , string);
 void markTasks(int ,int , string);
@@ -81,14 +82,14 @@ void addTask(){
     
     
     cout << "Please enter the task id";
-    cin >> taskIDs[taskCount];
+    cin >> taskIds[taskCount];
     
     cout << "Please enter the task Name";
     cin >> taskNames[taskCount];
     
     cout << "Please enter the task priority 1-5";
     cin >> taskPriority[taskCount];
-    while( !(taskPriority[taskCount] > 0 && taskPriority[taskCount] < 5) )
+    while( !(taskPriority[taskCount] > 0 && taskPriority[taskCount] < 6) )
         cin >> taskPriority[taskCount];
 
     
@@ -97,3 +98,15 @@ void addTask(){
     
     
 }
+
+void showTasks(){
+    if (taskCount == 0){
+        cout << "There are no tasks available ATM" << endl;
+        return;
+    }
+    for (int i = 0; i < taskCount; i++){
+        cout << "ID: " << taskIds[i] << " | Name: " << taskNames[i] << " | Priority: " << taskPriority[i] << endl;
+    }
+        
+}
+
