@@ -17,7 +17,7 @@ int taskCount = 0; // keep track of how many tasks i have
 // four  aarrays to store the data
 int taskIDs[MAX_TASKS];
 string taskNames[MAX_TASKS];
-int taskPriorities[MAX_TASKS];
+int taskPriority[MAX_TASKS];
 int taskDueDate[MAX_TASKS];
 
 void showMenu();
@@ -78,6 +78,22 @@ void addTask(){
         cout << "Tasks list full" << endl;
         return;
     }
+    
+    
+    cout << "Please enter the task id";
+    cin >> taskIDs[taskCount];
+    
+    cout << "Please enter the task Name";
+    cin >> taskNames[taskCount];
+    
+    cout << "Please enter the task priority 1-5";
+    cin >> taskPriority[taskCount];
+    while( !(taskPriority[taskCount] > 0 && taskPriority[taskCount] < 5) )
+        cin >> taskPriority[taskCount];
+
+    
+    cout << "Please enter the task id";
+    cin >> taskDueDate[taskCount];
     
     
 }
