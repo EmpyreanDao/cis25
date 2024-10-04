@@ -25,6 +25,7 @@ void showTasks();
 void addTask(int ,int , string);
 void removeTasks(int ,int , string);
 void markTasks(int ,int , string);
+int searchTasks ()
 
 
 using namespace std;
@@ -43,18 +44,39 @@ int main (){
         switch(choice)
         {
             case 1:
-                addTask();
+                addTask(1 ,1 , "tb");
                 break;
             case 2:
+                int inputOption;// this is so they can choose what task to remove by two diffrent methods ie the name and id ;
+                cout << "choose task by entering 1 or 2"<< endl;
+                cout << "1: Task ID" << endl;
+                cout << "2: Task Name" << endl;
+                cin >>  inputOption;
+                while( !(inputOption == 1 || inputOption == 2) )
+                    cin >> inputOption ;
+                switch (inputOption){
+                    case 1:
+                        cout << "Please enter that ID Number;"
+                        cin >>
+                        
+                        break;
+                    case 2:
+                        
+                        break;
+                        
+                }
                 removeTasks(1, 2, "Task Name");
                 break;
+                
             case 3:
                 markTasks(1, 2, "Task Name");
                 break;
+                
             case 4:
                 cout << "Diplaying tasks..." << endl;
                 // gotta creat a functino here to show tasks most lilkey with vectors
                 break;
+                
             case 5:
                 cout << "Exiting..."<< endl;
                 running = false; // stops the loop
@@ -110,3 +132,10 @@ void showTasks(){
         
 }
 
+void removeTasks(int id){
+    
+}
+
+void choose(){
+    
+}
