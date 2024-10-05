@@ -22,13 +22,13 @@ int taskDueDate[MAX_TASKS];
 
 void showMenu();
 void showTasks();
-void addTask(int ,int , string);
-void removeTasks(int ,int , string);
+void addTask();
+void removeTasks(int);
+void removeTasks(string);
 void markTasks(int ,int , string);
-int searchTasks ()
+int searchTasks ();
 
 
-using namespace std;
 int main (){
     bool running = true;
     int choice;
@@ -44,29 +44,38 @@ int main (){
         switch(choice)
         {
             case 1:
-                addTask(1 ,1 , "tb");
+                addTask();
                 break;
-            case 2:
+            case 2:{
                 int inputOption;// this is so they can choose what task to remove by two diffrent methods ie the name and id ;
+                int taskBeingRemovedID;
+                string taskBeingRemovedName;
                 cout << "choose task by entering 1 or 2"<< endl;
                 cout << "1: Task ID" << endl;
                 cout << "2: Task Name" << endl;
                 cin >>  inputOption;
                 while( !(inputOption == 1 || inputOption == 2) )
                     cin >> inputOption ;
-                switch (inputOption){
+                switch (inputOption)
+                {
                     case 1:
-                        cout << "Please enter that ID Number;"
-                        cin >>
+                        cout << "Please enter an ID Number:";
+                        cin >> taskBeingRemovedID;
+                        removeTasks(taskBeingRemovedID);
                         
                         break;
                     case 2:
-                        
+                        cout << "Please enter the task name:";
+                        cin >> taskBeingRemovedName;
+                        removeTasks(taskBeingRemovedName);
                         break;
-                        
+                    default:
+                        cout << "Invalid task choice." << endl;
+                        break;
                 }
-                removeTasks(1, 2, "Task Name");
+                
                 break;
+            }
                 
             case 3:
                 markTasks(1, 2, "Task Name");
