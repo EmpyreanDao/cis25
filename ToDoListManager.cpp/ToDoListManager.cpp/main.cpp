@@ -26,7 +26,8 @@ void addTask();
 void removeTasks(int);
 void removeTasks(string);
 void markTasks(int ,int , string);
-int searchTasks ();
+bool searchTasks(int);
+bool searchTasks(string);
 
 
 int main (){
@@ -61,14 +62,22 @@ int main (){
                     case 1:
                         cout << "Please enter an ID Number:";
                         cin >> taskBeingRemovedID;
-                        removeTasks(taskBeingRemovedID);
-                        
+                        if (searchTasks(taskBeingRemovedID))
+                            removeTasks(taskBeingRemovedID);
+                        else
+                            cout << "Task not found." << endl;
                         break;
+                        
                     case 2:
                         cout << "Please enter the task name:";
                         cin >> taskBeingRemovedName;
-                        removeTasks(taskBeingRemovedName);
+                        if (searchTasks(taskBeingRemovedName))
+                            removeTasks(taskBeingRemovedName);
+                        else
+                            cout << "Task not found." << endl;
                         break;
+                        
+                        
                     default:
                         cout << "Invalid task choice." << endl;
                         break;
@@ -141,10 +150,30 @@ void showTasks(){
         
 }
 
+bool searchTasks(int id){
+    bool taskExist = false;
+    for ( int i = 0; i <= taskCount ; i++ ){
+       if ( taskIds[i] == id)
+           taskExist = true;
+    }
+    return taskExist;
+    
+}
+
+bool searchTasks(string name){
+    
+    bool taskExist = false;
+    for ( int i = 0; i <= taskCount ; i++ ){
+        if ( taskNames[i] == name)
+           taskExist = true;
+    }
+    return taskExist;
+}
+
+
+
+
 void removeTasks(int id){
     
 }
 
-void choose(){
-    
-}
