@@ -20,6 +20,9 @@ extern int taskPriority[MAX_TASKS];
 extern bool taskCompleted[MAX_TASKS];
 // Initialized to 'false' for all tasks (not completed)
 
+
+
+// the declaation
 void showMenu();
 void showTasks();
 void addTask();
@@ -31,3 +34,4 @@ bool searchTasks(int);// to see if the input corresponds to a proper task
 bool searchTasks(std::string);
 
 #endif
+

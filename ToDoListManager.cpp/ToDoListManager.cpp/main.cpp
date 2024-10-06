@@ -46,15 +46,15 @@ int main (){
                 cout << "choose task by entering 1 or 2"<< endl;
                 cout << "1: Task ID" << endl;
                 cout << "2: Task Name" << endl;
-                cin >>  Id_NameOption;
-                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){// validation
+                cin >>  Id_NameOption;;
+                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){// validation for is 1 or 2 is choosen
                     cout << "Invalid choice. Please enter 1 or 2: ";
                     cin >> Id_NameOption ;
                 }
                 // switch case for which on they choose
                 switch (Id_NameOption)
                 {
-                    case 1:
+                    case 1:// this is for if the use chooses id as an input
                         cout << "Please enter an ID Number:";
                         cin >> taskBeingRemovedID;
                         if (searchTasks(taskBeingRemovedID))
@@ -63,7 +63,7 @@ int main (){
                             cout << "Task not found." << endl;
                         break;
                         
-                    case 2:
+                    case 2:// this is for if the use chooses name as an input
                         cout << "Please enter the task name:";
                         cin >> taskBeingRemovedName;
                         if (searchTasks(taskBeingRemovedName))
@@ -82,7 +82,7 @@ int main (){
             }
                 
             case 3:{
-                int Id_NameOption;
+                int Id_NameOption;// to hold the case variable for user choice
                 int taskToMarkID;
                 string taskToMarkName;
                 
@@ -92,20 +92,20 @@ int main (){
                 cout << "2: Task Name" << endl;
                 cin >>  Id_NameOption;
                 
-                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){
+                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){// validation for 1 or 2 
                     cout << "Invalid choice. Please enter 1 or 2: ";
                     cin >> Id_NameOption ;
                 }
                 
                 switch (Id_NameOption)
                 {
-                    case 1:
+                    case 1:// this is for if the use chooses id as an input
                         cout << "Please enter the task ID: ";
                         cin >> taskToMarkID;
                         markTasks(taskToMarkID);
                         break;
                         
-                    case 2:
+                    case 2:// this is for if the use chooses name as an input
                         cout << "Please enter the task name: ";
                         cin >> taskToMarkName;
                         markTasks(taskToMarkName);
@@ -138,3 +138,4 @@ int main (){
     }
 
 }
+ 
