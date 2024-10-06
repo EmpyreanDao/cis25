@@ -14,11 +14,10 @@ int taskCount = 0; // keep track of how many tasks i have
 
 
 
-// five  aarrays to store the data
+// four  aarrays to store the data
 int taskIds[MAX_TASKS];
 string taskNames[MAX_TASKS];
 int taskPriority[MAX_TASKS];
-int taskDueDate[MAX_TASKS];
 bool taskCompleted[MAX_TASKS] = {false};  // Initialized to 'false' for all tasks (not completed)
 
 void showMenu();
@@ -54,12 +53,17 @@ int main (){
                 int Id_NameOption;// this is so they can choose what task to remove by two diffrent methods ie the name and id ;
                 int taskBeingRemovedID;
                 string taskBeingRemovedName;
+                
+                
                 cout << "choose task by entering 1 or 2"<< endl;
                 cout << "1: Task ID" << endl;
                 cout << "2: Task Name" << endl;
                 cin >>  Id_NameOption;
-                while( !(Id_NameOption == 1 || Id_NameOption == 2) )
+                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){
+                    cout << "Invalid choice. Please enter 1 or 2: ";
                     cin >> Id_NameOption ;
+                }
+                
                 switch (Id_NameOption)
                 {
                     case 1:
@@ -100,12 +104,31 @@ int main (){
                 cout << "2: Task Name" << endl;
                 cin >>  Id_NameOption;
                 
-                while( !(Id_NameOption == 1 || Id_NameOption == 2) )
-                   
+                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){
+                    cout << "Invalid choice. Please enter 1 or 2: ";
                     cin >> Id_NameOption ;
+                }
                 
                 switch (Id_NameOption)
+                {
+                    case 1:
+                        cout << "Please enter the task ID: ";
+                        cin >> taskToMarkID;
+                        markTasks(taskToMarkID);
+                        break;
+                        
+                    case 2:
+                        cout << "Please enter the task name: ";
+                        cin >> taskToMarkName;
+                        markTasks(taskToMarkName);
+                        break;
+                    default:
+                        cout << "Invalid choice." << endl;
+                        break;
+                        
+                }
 
+                break;
             }
                 
                 break;
@@ -165,7 +188,7 @@ void showTasks(){
         return;
     }
     for (int i = 0; i < taskCount; i++){
-        cout << "ID: " << taskIds[i] << " | Name: " << taskNames[i] << " | Priority: " << taskPriority[i] << endl;
+        cout << "ID: " << taskIds[i] << " | Name: " << taskNames[i] << " | Priority: " << taskPriority[i] << " | Completion"<<  taskCompleted[i[] << endl;
     }
         
 }
@@ -201,7 +224,7 @@ void removeTasks(int id) {
                 taskIds[j] = taskIds[j + 1];
                 taskNames[j] = taskNames[j + 1];
                 taskPriority[j] = taskPriority[j + 1];
-                taskDueDate[j] = taskDueDate[j + 1];
+                taskCompleted[j] = taskCompleted[j + 1];
             }
             taskCount--; // Reduce task count after removal
             cout << "Task with ID " << id << " has been removed." << endl;
