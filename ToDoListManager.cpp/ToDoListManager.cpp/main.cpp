@@ -135,7 +135,7 @@ int main (){
                 
             case 4:
                 cout << "Diplaying tasks..." << endl;
-                // gotta creat a functino here to show tasks most lilkey with vectors
+                showTasks();
                 break;
                 
             case 5:
@@ -163,21 +163,33 @@ void addTask(){
         return;
     }
     
-    
+    int newTaskID;
+    string newTaskName;
     cout << "Please enter the task id";
-    cin >> taskIds[taskCount];
+    cin >> newTaskID;
+    
+    if( searchTasks(newTaskID)){
+        cout << " A task with this ID already exists. please enter a unique ID" << endl;
+    }
+    taskIds[taskCount] = newTaskID;
     
     cout << "Please enter the task Name";
-    cin >> taskNames[taskCount];
+    cin >> newTaskName;
+    if( searchTasks(newTaskName)){
+        cout << " A task with this name already exists. please enter a unique Name" << endl;
+    }
+    taskNames[taskCount] = newTaskName;
+    
     
     cout << "Please enter the task priority 1-5";
     cin >> taskPriority[taskCount];
-    while( !(taskPriority[taskCount] > 0 && taskPriority[taskCount] < 6) )
+    while( !(taskPriority[taskCount] > 0 && taskPriority[taskCount] < 6) ){
+        cout << "Invalid input, please try again ";
         cin >> taskPriority[taskCount];
-
-    
-    cout << "Please enter the task id";
-    cin >> taskDueDate[taskCount];
+        
+        taskCount++;
+        
+    }
     
     
 }
@@ -188,14 +200,17 @@ void showTasks(){
         return;
     }
     for (int i = 0; i < taskCount; i++){
-        cout << "ID: " << taskIds[i] << " | Name: " << taskNames[i] << " | Priority: " << taskPriority[i] << " | Completion"<<  taskCompleted[i[] << endl;
+        cout << "ID: " << taskIds[i]
+        << " | Name: " << taskNames[i]
+        << " | Priority: " << taskPriority[i]
+        << " | Completion"<<  (taskCompleted[i] ? "Completed" : "Not Completed") << endl;
     }
         
 }
 
 bool searchTasks(int id){
     bool taskExist = false;
-    for ( int i = 0; i <= taskCount ; i++ ){
+    for ( int i = 0; i < taskCount ; i++ ){
        if ( taskIds[i] == id)
            taskExist = true;
     }
@@ -206,7 +221,7 @@ bool searchTasks(int id){
 bool searchTasks(string name){
     
     bool taskExist = false;
-    for ( int i = 0; i <= taskCount ; i++ ){
+    for ( int i = 0; i < taskCount ; i++ ){
         if ( taskNames[i] == name)
            taskExist = true;
     }
@@ -242,7 +257,7 @@ void removeTasks(string name) {
                 taskIds[j] = taskIds[j + 1];
                 taskNames[j] = taskNames[j + 1];
                 taskPriority[j] = taskPriority[j + 1];
-                taskDueDate[j] = taskDueDate[j + 1];
+
             }
             taskCount--; // Reduce task count after removal
             cout << "Task with name " << name << " has been removed." << endl;
