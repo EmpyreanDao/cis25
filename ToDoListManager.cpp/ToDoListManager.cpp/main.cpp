@@ -4,31 +4,19 @@
 //
 //  Created by Samuel Tsogbe on 10/0/24.
 //
-
+#include "ToDoLIstManager.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
-const int MAX_TASKS = 100; // for how many tasks i want to deal with
-int taskCount = 0; // keep track of how many tasks i have
 
 
 
-// four  aarrays to store the data
-int taskIds[MAX_TASKS];
-string taskNames[MAX_TASKS];
-int taskPriority[MAX_TASKS];
-bool taskCompleted[MAX_TASKS] = {false};  // Initialized to 'false' for all tasks (not completed)
 
-void showMenu();
-void showTasks();
-void addTask();
-void removeTasks(int);
-void removeTasks(string);
-void markTasks(int);
-void markTasks(string);
-bool searchTasks(int);// to see if the input corresponds to a proper task
-bool searchTasks(string);
+
+
+
+
 
 
 int main (){
@@ -59,11 +47,11 @@ int main (){
                 cout << "1: Task ID" << endl;
                 cout << "2: Task Name" << endl;
                 cin >>  Id_NameOption;
-                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){
+                while( !(Id_NameOption == 1 || Id_NameOption == 2) ){// validation
                     cout << "Invalid choice. Please enter 1 or 2: ";
                     cin >> Id_NameOption ;
                 }
-                
+                // switch case for which on they choose
                 switch (Id_NameOption)
                 {
                     case 1:
@@ -99,7 +87,7 @@ int main (){
                 string taskToMarkName;
                 
                 
-                cout << "Choose how to maek the task as completed:" << endl;
+                cout << "Choose how to mark the task as completed:" << endl;
                 cout << "1: Task ID" << endl;
                 cout << "2: Task Name" << endl;
                 cin >>  Id_NameOption;
@@ -149,142 +137,4 @@ int main (){
         }
     }
 
-}
-void showMenu(){
-    cout << "1. Add a task" << endl;
-    cout << "2. Remove a task" << endl;
-    cout << "3. Mark a task as completed" << endl;
-    cout << "4. View all tasks" << endl;
-    cout << "5. Exit" << endl;
-}
-void addTask(){
-    if (taskCount >= MAX_TASKS){
-        cout << "Tasks list full" << endl;
-        return;
-    }
-    
-    int newTaskID;
-    string newTaskName;
-    cout << "Please enter the task id";
-    cin >> newTaskID;
-    
-    if( searchTasks(newTaskID)){
-        cout << " A task with this ID already exists. please enter a unique ID" << endl;
-    }
-    taskIds[taskCount] = newTaskID;
-    
-    cout << "Please enter the task Name";
-    cin >> newTaskName;
-    if( searchTasks(newTaskName)){
-        cout << " A task with this name already exists. please enter a unique Name" << endl;
-    }
-    taskNames[taskCount] = newTaskName;
-    
-    
-    cout << "Please enter the task priority 1-5";
-    cin >> taskPriority[taskCount];
-    while( !(taskPriority[taskCount] > 0 && taskPriority[taskCount] < 6) ){
-        cout << "Invalid input, please try again ";
-        cin >> taskPriority[taskCount];
-        
-        taskCount++;
-        
-    }
-    
-    
-}
-
-void showTasks(){
-    if (taskCount == 0){
-        cout << "There are no tasks available ATM" << endl;
-        return;
-    }
-    for (int i = 0; i < taskCount; i++){
-        cout << "ID: " << taskIds[i]
-        << " | Name: " << taskNames[i]
-        << " | Priority: " << taskPriority[i]
-        << " | Completion"<<  (taskCompleted[i] ? "Completed" : "Not Completed") << endl;
-    }
-        
-}
-
-bool searchTasks(int id){
-    bool taskExist = false;
-    for ( int i = 0; i < taskCount ; i++ ){
-       if ( taskIds[i] == id)
-           taskExist = true;
-    }
-    return taskExist;
-    
-}
-
-bool searchTasks(string name){
-    
-    bool taskExist = false;
-    for ( int i = 0; i < taskCount ; i++ ){
-        if ( taskNames[i] == name)
-           taskExist = true;
-    }
-    return taskExist;
-}
-
-
-
-
-void removeTasks(int id) {
-    for (int i = 0; i < taskCount; i++) {
-        if (taskIds[i] == id) {
-            // Shift all tasks after this one up by 1
-            for (int j = i; j < taskCount - 1; j++) {
-                taskIds[j] = taskIds[j + 1];
-                taskNames[j] = taskNames[j + 1];
-                taskPriority[j] = taskPriority[j + 1];
-                taskCompleted[j] = taskCompleted[j + 1];
-            }
-            taskCount--; // Reduce task count after removal
-            cout << "Task with ID " << id << " has been removed." << endl;
-            return;
-        }
-    }
-    cout << "Task with ID " << id << " not found." << endl;
-}
-
-void removeTasks(string name) {
-    for (int i = 0; i < taskCount; i++) {
-        if (taskNames[i] == name) {
-            // Shift all tasks after this one up by 1
-            for (int j = i; j < taskCount - 1; j++) {
-                taskIds[j] = taskIds[j + 1];
-                taskNames[j] = taskNames[j + 1];
-                taskPriority[j] = taskPriority[j + 1];
-
-            }
-            taskCount--; // Reduce task count after removal
-            cout << "Task with name " << name << " has been removed." << endl;
-            return;
-        }
-    }
-    cout << "Task with name " << name << " not found." << endl;
-}
-
-void markTasks(int id ){
-    for (int i = 0; i < taskCount; i++){
-        if (taskIds[i] == id ){
-            taskCompleted[i] = true;
-            cout << "Task with ID" << id << " marked as completed!"<< endl;
-            return;
-        }
-    }
-    cout << "Task with ID " << id << " not found." << endl;
-}
-
-void markTasks(string name ){
-    for (int i = 0; i < taskCount; i++){
-        if (taskNames[i] == name ){
-            taskCompleted[i] = true; // this makes the name true
-            cout << "Task with name" << name << " marked as completed!"<< endl;
-            return;
-        }
-    }
-    cout << "Task with name " << name << " not found." << endl;
 }
