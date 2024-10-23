@@ -4,7 +4,7 @@
 //
 
 #include <iostream>
-uainf namespace std;
+using namespace std;
 
 int main(int argc, const char * argv[]) {
     int size;
@@ -28,5 +28,5 @@ int main(int argc, const char * argv[]) {
     cout << "The sum of the array is: " << sum << endl;
     
     delete[] arr;
-    return 0; 
+    return 0;
 }
