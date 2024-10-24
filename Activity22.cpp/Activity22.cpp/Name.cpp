@@ -20,7 +20,8 @@ void extractFrstAndLastName(const std::string& fullName, std::string& firstName,
         //holds the last n+1 index of the first name to the end
         lastName = fullName.substr(firstSPace + 1 );
     }else {
-
+        firstName = fullName;
+        lastName = "None entered; check if no space entered";
     }
     
     
