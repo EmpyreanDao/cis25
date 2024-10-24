@@ -8,7 +8,7 @@
 
 #include <string>
 
-void extractFrstAndLastName(const std::string& fullName, std::strings& firstName, std:: lastName);
+void extractFrstAndLastName(const std::string& fullName, std::string& firstName, std::string& lastName);
 
 
 

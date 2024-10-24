@@ -7,8 +7,24 @@
 
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+#include "Name.h"
+using namespace std;
+
+int main() {
+    
+    string fullName;
+    string firstName, lastName;
+    
+    
+    cout << "Enter Full Name: ";
+    getline (cin , fullName);// so we can have spaces
+    
+    
+    extractFrstAndLastName(fullName, firstName, lastName);// calling the functions
+    
+    cout << "First Name: " << firstName << endl;
+    cout << "Last Name: " << lastName << endl;
+    
+    
+    
 }
