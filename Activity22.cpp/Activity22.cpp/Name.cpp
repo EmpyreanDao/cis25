@@ -2,3 +2,17 @@
 //
 //
 
+
+#include "Name.h"
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+void extractFrstAndLastName(const std::string& fullName, std::string& firstName, std::string& lastName){
+    // to find the first space
+    size_t firstSPace = fullName.find(' ');
+    
+    if (firstSPace != string::npos)
+    
+}
