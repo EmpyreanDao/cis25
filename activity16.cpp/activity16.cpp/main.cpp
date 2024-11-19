@@ -6,9 +6,31 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <string>
+#include <iomanip>
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+double calculateAverage(const vector<double>& grades){
+    double total = 0;
+    for (int grade: grades){
+        total += grade;
+    }
+    return total / grades.size();
+}
+
+int main(){
+    
+    int amountStudents;
+    
+    cout << "PLease enter how many students you have:";
+    cin >> amountStudents;
+    
+    
+    string studentNames[amountStudents];
+    int student grades[amountStudents];
+    
+    for (int i = 0; i < amountStudents; i ++){
+        cout << "Please enter the name of students that you have"
+    }
 }
