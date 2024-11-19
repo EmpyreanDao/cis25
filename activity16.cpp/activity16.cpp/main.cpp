@@ -9,6 +9,7 @@
 #include <vector>
 #include <string>
 #include <iomanip>
+#include <sstream>
 using namespace std;
 
 double calculateAverage(const vector<double>& grades){
@@ -84,12 +85,19 @@ void compareGrades(const vector<double>& grades, const vector <string>& names){
         cout << student1 << "'s grade: "<< grades[index1] << endl;
         cout << student2 << "'s grade: "<< grades[index2] << endl;
         if (grades[index1] > grades[index2])
-            cout << student1 << " has a higher grade that " << student2 << "." << endl;
+            cout << student1 << " has a higher grade than " << student2 << "." << endl;
         else if (grades[index1] < grades[index2])
-            cout << student2 << " has a higher grade that " << student1 << "." << endl;
+            cout << student2 << " has a higher grade than " << student1 << "." << endl;
         else cout << student1 << " and " << student2  << " have the same grade." << endl;
     }else
-        cout << "One or both of the stuents names not found." << endl;
+        cout << "One or both of the students names not found." << endl;
+}
+
+
+bool parseInput(const string& input, string& name, double& grade){
+    stringstream ss(input);
+    ss >> name;// extracting name
+    if (!ss >> grade )
 }
 
 
