@@ -127,6 +127,7 @@ int main(){
             cout << "invalid input. Please enter in correct format 'Name Grade'.\n";
             i--;// so we don't have an empty index
         }
+    }
         
         double average = calculateAverage(grades);
         cout << fixed << setprecision(2); // for two decimals places
@@ -142,7 +143,7 @@ int main(){
         cout << "Do you want to compare between students?  (y/n): ";
         cin >> compareChoice;
         if (compareChoice == 'y' || compareChoice == 'Y'){
-            compareGrades(grades, names)
+            compareGrades(grades, names);
         }
-    }
+    
 }
