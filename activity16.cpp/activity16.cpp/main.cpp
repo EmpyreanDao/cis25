@@ -23,7 +23,7 @@ void findHighestGrade(const vector<double>& grades, const vector <string>& names
     int maxGrade = grades[0];
     for (int grade: grades){
         if (grade > maxGrade){
-            maxGrade = grade
+            maxGrade = grade;
         }
     }
     cout << "Highest Grade: " << maxGrade << " achieved by: ";
@@ -31,9 +31,26 @@ void findHighestGrade(const vector<double>& grades, const vector <string>& names
         if (grades[i] == maxGrade){
             cout << names[i];
         }
-        cput << endl;
+        cout << endl;
     }
 }
+
+void findLowestGrade(const vector<double>& grades, const vector <string>& names){
+    int minGrade = grades[0];
+    for (int grade: grades){
+        if (grade < minGrade){
+            minGrade = grade;
+        }
+    }
+    cout << "Lowest Grade: " << minGrade << " achieved by: ";
+    for (size_t i = 0; i < grades.size(); i++){
+        if (grades[i] == minGrade){
+            cout << names[i];
+        }
+        cout << endl;
+    }
+}
+
 
 int main(){
     
