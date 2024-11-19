@@ -67,6 +67,19 @@ void compareGrades(const vector<double>& grades, const vector <string>& names){
     cin >> student1;
     cout << "Enter the name of the second student to compare: ";
     cin >> student2;
+    
+    int index1 = -1, index2 = -1;
+    
+    //finding the students here based on the names inputed
+    for(size_t i = 0; i < names.size(); i++){
+        if (names[i] == student1){
+            index1 = i;
+        }
+        if (names[i] == student2){
+            index2 = i;
+        }
+    }
+    
 }
 
 
