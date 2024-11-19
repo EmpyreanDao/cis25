@@ -61,6 +61,14 @@ void listAboveAverage(const vector<double>& grades, const vector <string>& names
     cout << endl;
 }
 
+void compareGrades(const vector<double>& grades, const vector <string>& names){
+    string student1, student2;
+    cout << "Enter the name of the first student to compare: ";
+    cin >> student1;
+    cout << "Enter the name of the second student to compare: ";
+    cin >> student2;
+}
+
 
 int main(){
     
