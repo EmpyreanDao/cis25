@@ -117,7 +117,7 @@ int main(){
     cout << "ENter the names and grades of the students (e.g., 'Samuel 98'):\n";
     for (int i = 0; i < amountStudents; i ++){
         string input, name;
-        int grade;
+        double grade;
         getline(cin, input); // fopr reading the whole thing for the sstream
         
         if (parseInput(input, name, grade)){// if the input is valid than its added to the vector
@@ -142,7 +142,7 @@ int main(){
         cout << "Do you want to compare between students?  (y/n): ";
         cin >> compareChoice;
         if (compareChoice == 'y' || compareChoice == 'Y'){
-            compareGrades(names, grades)
+            compareGrades(grades, names)
         }
     }
 }
