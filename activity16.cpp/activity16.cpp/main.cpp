@@ -97,22 +97,36 @@ void compareGrades(const vector<double>& grades, const vector <string>& names){
 bool parseInput(const string& input, string& name, double& grade){
     stringstream ss(input);
     ss >> name;// extracting name
-    if (!ss >> grade )
+    if (!(ss >> grade)){
+        return false;
+    }
+    return true;
 }
-
+"
 
 int main(){
-    
+    vector<string> names;
+    vector<double> grades;
     int amountStudents;
     
     cout << "PLease enter how many students you have:";
     cin >> amountStudents;
+    cin.ignore();
     
-    
-    string studentNames[amountStudents];
-    int student grades[amountStudents];
-    
+   
+    cout << "ENter the names and grades of the students (e.g., 'Samuel 98'):\n";
     for (int i = 0; i < amountStudents; i ++){
-        cout << "Please enter the name of students that you have"
+        string input, name;
+        int grade;
+        getline(cin, input); // fopr reading the whole thing for the sstream
+        
+        if (parseInput(input,name,grade)){
+            names.push_back(name);
+            grades.push_back(grade);
+        }else{
+            cout << "invalid input. Please enter in correct format 'Name Grade'.\n";
+            i--;// so we don't have an empty index
+        }
+        
     }
 }
