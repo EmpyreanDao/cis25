@@ -51,6 +51,16 @@ void findLowestGrade(const vector<double>& grades, const vector <string>& names)
     }
 }
 
+void listAboveAverage(const vector<double>& grades, const vector <string>& names, double average){
+    cout << "Students above average (" << average << "): ";
+    for (size_t i = 0; i < grades.size(); i++){
+        if (grades[i] > average){
+            cout << names[i] << " ";
+        }
+    }
+    cout << endl;
+}
+
 
 int main(){
     
