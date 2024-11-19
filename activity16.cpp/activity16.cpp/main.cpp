@@ -32,8 +32,8 @@ void findHighestGrade(const vector<double>& grades, const vector <string>& names
         if (grades[i] == maxGrade){
             cout << names[i];
         }
-        cout << endl;
     }
+    cout << endl;
 }
 
 void findLowestGrade(const vector<double>& grades, const vector <string>& names){
@@ -48,8 +48,8 @@ void findLowestGrade(const vector<double>& grades, const vector <string>& names)
         if (grades[i] == minGrade){
             cout << names[i];
         }
-        cout << endl;
     }
+    cout << endl;
 }
 
 void listAboveAverage(const vector<double>& grades, const vector <string>& names, double average){
