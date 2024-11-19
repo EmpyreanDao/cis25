@@ -102,7 +102,7 @@ bool parseInput(const string& input, string& name, double& grade){
     }
     return true;
 }
-"
+
 
 int main(){
     vector<string> names;
@@ -120,7 +120,7 @@ int main(){
         int grade;
         getline(cin, input); // fopr reading the whole thing for the sstream
         
-        if (parseInput(input,name,grade)){
+        if (parseInput(input, name, grade)){// if the input is valid than its added to the vector
             names.push_back(name);
             grades.push_back(grade);
         }else{
@@ -128,5 +128,21 @@ int main(){
             i--;// so we don't have an empty index
         }
         
+        double average = calculateAverage(grades);
+        cout << fixed << setprecision(2); // for two decimals places
+        cout << "Class Average: " << average << endl;
+        
+        findHighestGrade(grades, names);
+        findLowestGrade(grades, names);
+        listAboveAverage(grades, names, average);
+        
+        
+        char compareChoice;
+        
+        cout << "Do you want to compare between students?  (y/n): ";
+        cin >> compareChoice;
+        if (compareChoice == 'y' || compareChoice == 'Y'){
+            compareGrades(names, grades)
+        }
     }
 }
