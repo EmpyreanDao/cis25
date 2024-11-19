@@ -19,6 +19,22 @@ double calculateAverage(const vector<double>& grades){
     return total / grades.size();
 }
 
+void findHighestGrade(const vector<double>& grades, const vector <string>& names){
+    int maxGrade = grades[0];
+    for (int grade: grades){
+        if (grade > maxGrade){
+            maxGrade = grade
+        }
+    }
+    cout << "Highest Grade: " << maxGrade << " achieved by: ";
+    for (size_t i = 0; i < grades.size(); i++){
+        if (grades[i] == maxGrade){
+            cout << names[i];
+        }
+        cput << endl;
+    }
+}
+
 int main(){
     
     int amountStudents;
